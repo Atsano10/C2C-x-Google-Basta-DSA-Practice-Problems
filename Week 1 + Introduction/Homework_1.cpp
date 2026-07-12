@@ -8,7 +8,7 @@ Explanation: The subarrays that sum up to 6 are [3, 1, 2] and [2, 4].
 [execution time limit] 0.5 seconds (cpp)       |       [memory limit] 2g
 */
 
-// Time 1:25 ->
+// Time 1:25 -> 2:05
 
 #include <iostream>
 
