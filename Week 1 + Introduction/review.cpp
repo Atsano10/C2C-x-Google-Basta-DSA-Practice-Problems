@@ -34,6 +34,8 @@ int main(){
 
 int main(){
 
+    Node* head = new Node();
+    
     Node* current = head; // Create a temp pointer that points to the head
 
     while (current != nullptr){ // while we are not pointing at nullptr then we keep going next and printing the data
