@@ -26,7 +26,7 @@ Output: [0]
 
 //Time started 11:38 - 12:05 | 27 minutes
 // Thought process, we need to re order the numbers correctly, keep count of "carrys" and add each corresponding index.
-// Queues? padded out the smaller array for 0's for easier addition when out of bounds, maybe a faster way (Current: O(n))
+// Queues? padded out the smaller array for 0's for easier addition when out of bounds, maybe a faster way (Current: O(n)).
 
 #include <iostream>
 #include <vector>
