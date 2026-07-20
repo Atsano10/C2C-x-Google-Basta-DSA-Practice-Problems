@@ -8,11 +8,12 @@ key: 3
 Output: [1,5,2,1]
 */
 
-// Time start 11:15pm - paused at 11:37.
-// Thought process just iterate through the linkedlist until next == null and 
-// remove if we find the key. 
+// Time start 11:15pm - paused at 11:37. Current time: 22minutes
+// Time resumed 12:15- 12:31 
+// Total Time: 16 + 22 = 38
+// Initial thought process just iterate through the linkedlist until next == null and remove if we find the key. 
 
-// Just setting up the function and we can test it somehow else.
+// account for removal at the head. change loop to stop after the last node and not before.
 
 #include <iostream>
 
@@ -23,14 +24,23 @@ struct Node{
 
 Node* remove(Node* head, int key){
     Node* temp = head;
-    while(head->next != nullptr){
-        if(head->data == key){
+    Node* start = head;
 
+    if(head->data == key){
+        return head->next;
+    }
+    head = head->next;
+    while(head != nullptr){
+        if(head->data == key){
+            temp->next = head->next;
+            break;
+        }else{
+            temp = temp->next;
         }
         head = head->next;
     }
 
-    return head;
+    return start;
 }
 
 int main() {
