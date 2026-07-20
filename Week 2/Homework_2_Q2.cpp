@@ -26,6 +26,7 @@ Output: [0]
 
 //Time started 11:38 - 
 // Thought process, we need to re order the numbers correctly, keep count of "carrys" and add each corresponding index.
+// Queues?
 
 #include <iostream>
 #include <vector>
@@ -41,7 +42,7 @@ vector<int> solution(vector<int> arr1, vector<int> arr2) {
 
     for(int i = 0; i < arr1.size() && i < arr2.size(); i++){
         if(arr1[i] + arr2[i] > 10){
-            
+
         }
         result.push_back(arr1[i]+arr2[i]);
     }
