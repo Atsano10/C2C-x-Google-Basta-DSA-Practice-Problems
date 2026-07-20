@@ -24,14 +24,16 @@ Output: [0]
 */
 
 
-//Time started 11:38 - 
+//Time started 11:38 - 12:05 | 27 minutes
 // Thought process, we need to re order the numbers correctly, keep count of "carrys" and add each corresponding index.
-// Queues?
+// Queues? padded out the smaller array for 0's for easier addition when out of bounds, maybe a faster way (Current: O(n))
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
+
+// First submit failed, we are not consecutively carrying.
 
 vector<int> solution(vector<int> arr1, vector<int> arr2) {
     reverse(arr1.begin(),arr1.end());
@@ -40,13 +42,33 @@ vector<int> solution(vector<int> arr1, vector<int> arr2) {
     int carry = 0;
     vector<int> result;
 
-    for(int i = 0; i < arr1.size() && i < arr2.size(); i++){
-        if(arr1[i] + arr2[i] > 10){
-
+    while(arr1.size() != arr2.size()){
+        if (arr1.size()< arr2.size()){
+            arr1.push_back(0);
+        }else{
+            arr2.push_back(0);
         }
-        result.push_back(arr1[i]+arr2[i]);
     }
 
+
+    for(int i = 0; i < arr1.size(); i++){
+        if(carry == 1){
+            arr1[i]+=1;
+            carry = 0;
+        }
+
+        if((arr1[i] + arr2[i]) >= 10){
+            carry = 1;
+            result.push_back(arr1[i]+arr2[i] - 10);
+        }else{
+            result.push_back(arr1[i]+arr2[i]);
+        }
+
+    }
+
+    if (carry == 1){
+        result.push_back(carry);
+    }
     return result;
 }
 
